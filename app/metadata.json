@@ -1,0 +1,13 @@
+{
+    "title": "HDB Resale Flat Prices",
+    "description": "HDB resale price explorer made with Datasette",
+    "license": "Singapore Open Data Licence",
+    "license_url": "https://data.gov.sg/open-data-licence",
+    "source": "Housing and Development Board",
+    "source_url": "https://data.gov.sg/dataset/resale-flat-prices",
+    "about": "hdb-resale-prices-datasette",
+    "about_url": "https://github.com/darrelhong/hdb-resale-prices-datasette",
+    "extra_js_uresale-flat-pricesrls": [
+        "/static/posthog.js"
+    ]
+}

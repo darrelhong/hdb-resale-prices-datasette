@@ -1,0 +1,5 @@
+{
+    "facet_time_limit_ms": 1000,
+    "suggest_facets": false,
+    "default_cache_ttl": "604800"
+}
