@@ -1,5 +1,7 @@
 {% include "default:_description_source_license.html" %}
 
+{% if request.path.split('/')|length < 3 %}
 <p>
     Explore the data <a href="/resale/resale_prices">here</a>
 </p>
+{% endif %}
