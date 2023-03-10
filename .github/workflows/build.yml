@@ -1,0 +1,49 @@
+name: Build csv, db and deploy
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '48 15 * * 3'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+    - name: Checkout hdb-resale-prices-data
+      uses: actions/checkout@v3
+      with:
+        repository: darrelhong/hdb-resale-prices-data
+        path: hdb-resale-prices-data
+    - name: Cache zip download
+      uses: actions/cache@v3.3.0
+      with:
+        path: ~/downloads
+        key: ${{ runner.os }}-download-cache
+    - name: Setup Python
+      uses: actions/setup-python@v4.5.0
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    - name: Install Python dependencies
+      run: |
+        pip install -r requirements.txt
+    - name: Download dataset
+      run: |
+        ./download.sh
+    - name: Build csv
+      run: |
+        python build_csv.py
+    - name: Build db
+      run: |
+        ./build_db.sh
+    - name: Setup flyctl
+      uses: superfly/flyctl-actions/setup-flyctl@master
+    - name: Deploy to fly.io
+      run: |
+        ./publish_fly.sh
+      env:
+        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+    
+      
