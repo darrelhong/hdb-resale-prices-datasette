@@ -1,7 +1,7 @@
 datasette>=0.64.1
 datasette-cluster-map
 datasette-vega
-datasette-publish-fly
+# datasette-publish-fly
 sqlite-utils
 conditional-get
 pandas

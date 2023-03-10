@@ -1,4 +1,5 @@
 #!/bin/sh
+datasette install git+https://github.com/cldellow/datasette-publish-fly@33d3b73cd275e059e2b10d6775dc82aba72a4d92
 
 datasette publish fly \
 app/resale.db \
