@@ -16,6 +16,7 @@ jobs:
       with:
         repository: darrelhong/hdb-resale-prices-data
         path: hdb-resale-prices-data
+        token: ${{ secrets.GH_PAT }}
     - name: Cache zip download
       uses: actions/cache@v3.3.0
       with:
