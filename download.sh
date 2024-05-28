@@ -6,6 +6,7 @@ conditional-get --etags ~/downloads/etags.json  --output ~/downloads/datasets.zi
 NEW_CSV_MD5=$(md5sum ~/downloads/datasets.zip | awk '{ print $1 }')
 
 if [ "$CURR_CSV_MD5" = "$NEW_CSV_MD5" ]; then
+    echo "No new dataset found"
     exit 1
 fi
 
