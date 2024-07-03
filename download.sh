@@ -1,7 +1,7 @@
 mkdir -p ~/downloads
 mkdir -p data/datasets
 
-SIGNED_S3_LINK=$(curl -X POST https://api-production.data.gov.sg/v2/internal/api/datasets/d_8b84c4ee58e3cfc0ece0d773c8ca6abc/initiate-download | jq -r '.data.url')
+SIGNED_S3_LINK=$(curl --request POST --url https://api-production.data.gov.sg/v2/internal/api/datasets/d_8b84c4ee58e3cfc0ece0d773c8ca6abc/initiate-download --header 'content-type: application/json' --data '{}' | jq -r '.data.url')
 
 echo $SIGNED_S3_LINK
 
