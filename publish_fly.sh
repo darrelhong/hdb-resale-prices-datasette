@@ -9,6 +9,7 @@ app/resale.db \
 --install datasette-cluster-map \
 --install datasette-vega \
 --setting facet_time_limit_ms 1000 \
+--setting sql_time_limit_ms 10000 \
 --setting suggest_facets off \
 --setting default_cache_ttl 604800 \
 --setting allow_download off \
