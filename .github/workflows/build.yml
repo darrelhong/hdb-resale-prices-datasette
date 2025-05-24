@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Checkout hdb-resale-prices-data
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: darrelhong/hdb-resale-prices-data
         path: hdb-resale-prices-data
         token: ${{ secrets.GH_PAT }}
     - name: Cache zip download
-      uses: actions/cache@v3.3.0
+      uses: actions/cache@v4
       with:
         path: ~/downloads
         key: ${{ runner.os }}-download-cache
