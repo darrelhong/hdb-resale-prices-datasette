@@ -18,13 +18,9 @@ jan_2017_now_df = jan_2017_now_df.sort_values("month")
 jan_1990_now_df = pd.concat([jan_1990_dec_2016_df, jan_2017_now_df])
 
 # add lat long data
-jan_1990_now_df['block_street_name'] = jan_1990_now_df['block'] + " " + jan_1990_now_df['street_name']
 geocode = pd.read_csv('hdb-resale-prices-data/resale_blocks_geocode_block_street_name.csv')
 jan_1990_now_lat_long_df = pd.merge(
-    jan_1990_now_df, geocode, how="left", on="block_street_name"
-)
-jan_1990_now_lat_long_df = jan_1990_now_lat_long_df.drop(
-    labels="block_street_name", axis=1
+    jan_1990_now_df, geocode, how="left", on=['block', 'street_name']
 )
 
 # sort by date of transaction desc
