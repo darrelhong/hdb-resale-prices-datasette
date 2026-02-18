@@ -9,10 +9,10 @@ CURR_CSV_MD5=$(md5sum ~/downloads/2017_onwards.csv 2>/dev/null | awk '{ print $1
 conditional-get --etags ~/downloads/etags.json  --output ~/downloads/2017_onwards.csv $SIGNED_S3_LINK
 NEW_CSV_MD5=$(md5sum ~/downloads/2017_onwards.csv | awk '{ print $1 }')
 
-if [ "$CURR_CSV_MD5" = "$NEW_CSV_MD5" ]; then
-    echo "No new dataset found"
-    exit 1
-fi
+# if [ "$CURR_CSV_MD5" = "$NEW_CSV_MD5" ]; then
+#     echo "No new dataset found"
+#     exit 1
+# fi
 
 # unzip ~/downloads/datasets.zip -d data/datasets
 cp ~/downloads/2017_onwards.csv data/datasets/resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
